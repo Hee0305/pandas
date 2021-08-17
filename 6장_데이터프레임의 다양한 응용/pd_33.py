@@ -49,3 +49,19 @@ print(pdf3.columns)
 
     # xs 인덱서 사용 - 행 선택(default: axis=0)
 print(pdf3.xs('First')) # 행 인덱스가 First인 행을 선택
+
+print(pdf3.xs(('First', 'female'))) # 행 인덱스가 ('First', 'female')인 행을 선택
+
+print(pdf3.xs('male', level='sex')) # 행 인덱스의 sex 레벨이 male인 행을 선택
+
+print(pdf3.xs(('Second', 'male'), level=[0, 'sex'])) # Second, male인 행을 선택
+
+    # xs 인덱서 사용 - 열 선택(axis=1 설정)
+print(pdf3.xs('mean', axis=1))
+
+print(pdf3.xs(('mean','age'), axis=1)) # 열 인덱스가 ('mean', 'age')인 데이터 선택
+
+print(pdf3.xs(1, level='survived', axis=1)) # survived 레벨이 1인 데이터 선택
+
+print(pdf3.xs(('max','fare',0),
+              level=[0,1,2], axis=1)) # max, fare, survived=0인 데이터 선택
